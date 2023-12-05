@@ -1,0 +1,2 @@
+Different pages (ex. RayOptics.tsx etc.) should be created here and pull components from 'components' directory.
+You can make a folder of your topic if it contains more than one page like (RayOptics/index.tsx).
