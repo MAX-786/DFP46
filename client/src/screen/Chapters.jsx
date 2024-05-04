@@ -11,7 +11,7 @@ export default function Chapter ({ chapter }) {
     <ul>
       {chapter.sections.map((section, index) => (
         <li key={index}>
-          <Link to={`/courses/chapter/${chapter.slug}/section/${index}`}>{section}</Link>
+          <Link to={`${section.slug}`}>{`${chapter.id}.${section.id} ${section.name}`}</Link>
         </li>
       ))}
     </ul>
