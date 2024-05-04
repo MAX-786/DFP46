@@ -43,14 +43,12 @@ import Branch from "./screen/dashboard/Branch.jsx";
 import EnrolledStudentHome from "./screen/dashboard/enrolledStudent/EnrolledStudentHome.jsx";
 import UpdateEnrolledStudent from "./screen/dashboard/enrolledStudent/UpdateEnrolledStudent.jsx";
 
-// chapters 
-import RayOptics from "./screen/course/ray-optics/RayOptics.jsx";
-import WaveOptics from "./screen/course/wave-optics/WaveOptics.jsx";
-import DualNature from "./screen/course/dual-nature/DualNature.jsx";
-import Atoms from "./screen/course/atoms/Atoms.jsx";
-import SemiConductors from "./screen/course/semiconductors/SemiConductors.jsx";
-import Nuclie from "./screen/course/nuclie/Nuclie.jsx"; 
+import Chapter from "./screen/Chapters.jsx";
+import Section from "./screen/Sections.jsx";
 
+// chapters
+
+import chaptersData from "./utils/Chapters.js"
 
 export default function App() {
   return (
@@ -62,12 +60,61 @@ export default function App() {
           <Route path="signup" element={<SignUp />} />
 
           <Route path="course" element={<Course />}>
-            <Route index element={<CourseHome />} />
-            <Route path="course-detail" element={<CourseDetail />} />
+            {/* Chapter routes */}
+            {chaptersData.map((chapter) => (
+              <Route
+                key={chapter.id}
+                path={`chapter/${chapter.slug}`}
+                element={<Chapter chapter={chapter} />}
+              />
+            ))}
+
+            {/* Section routes */}
+            {chaptersData.map((chapter) =>
+              chapter.sections.map((section, index) => (
+                <Route
+                  key={`${chapter.id}-${index}`}
+                  path={`chapter/${chapter.slug}/section/${index}`}
+                  element={
+                    <Section chapterId={chapter.slug} sectionIndex={index} />
+                  }
+                />
+              ))
+            )}
+          </Route>
+
+          <Route path="courses" element={<Quiz />}>
+            <Route index element={<QuizCategory />} />
+
+            {/* Chapter routes */}
+            {chaptersData.map((chapter) => (
+              <Route
+                key={chapter.id}
+                path={`chapter/${chapter.slug}`}
+                element={<Chapter chapter={chapter} />}
+              />
+            ))}
+
+            {/* Section routes */}
+            {chaptersData.map((chapter) =>
+              chapter.sections.map((section, index) => (
+                <Route
+                  key={`${chapter.id}-${index}`}
+                  path={`chapter/${chapter.slug}/section/${index}`}
+                  element={
+                    <Section chapterId={chapter.slug} sectionIndex={index} />
+                  }
+                />
+              ))
+            )}
+
+            <Route path="quiz-level/:id" element={<QuizLevel />} />
+            <Route path="display-quiz" element={<DisplayQuiz />} />
           </Route>
 
           <Route path="quiz" element={<Quiz />}>
             <Route index element={<QuizCategory />} />
+
             <Route path="quiz-level/:id" element={<QuizLevel />} />
             <Route path="display-quiz" element={<DisplayQuiz />} />
           </Route>

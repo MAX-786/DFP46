@@ -5,7 +5,7 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import { useNavigate } from 'react-router-dom'
 
-//import all the images here 
+// //import all the images here 
 import Bocce from '../../assets/Bocce.png'
 import Fan from '../../assets/Fan.png'
 import FullBattery from '../../assets/FullBattery.png'
@@ -20,6 +20,7 @@ import Searchlight from '../../assets/Searchlight.png'
 import Swap from '../../assets/Swap.png'
 import Tesla from '../../assets/Tesla.png'
 import Transistor from '../../assets/Transistor.png'
+import chapters  from '../../utils/Chapters.js' ;
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -30,40 +31,6 @@ const Item = styled(Paper)(({ theme }) => ({
   width: 320
 }));
 
-
-const chapters = [
-  {
-    'id': 9,
-    'name': 'Ray Optics and Optical Instruments',
-    'src': Searchlight,
-    'slug': 'ray-optics'
-  }, {
-    'id': 10,
-    'name': 'Wave Optics',
-    'src': RadioWave,
-    'slug': 'wave-optics'
-  }, {
-    'id': 11,
-    'name': 'Dual Nature of Radiation and Matter',
-    'src': Swap,
-    'slug': 'dual-nature-of-radiation-and-matter'
-  }, {
-    'id': 12,
-    'name': 'Atoms',
-    'src': Bocce,
-    'slug': 'atoms'
-  }, {
-    'id': 13,
-    'name': 'Nuclie',
-    'src': ReactImage,
-    'slug': 'nuclie'
-  }, {
-    'id': 14,
-    'name': 'Semiconductors Electronics',
-    'src': Transistor,
-    'slug': 'semiconductors'
-  }
-]
 
 
 const CourseChapterItem = ({ chapter }) => {
@@ -86,8 +53,11 @@ export default function Course() {
   const navigate = useNavigate();
 
   const handleChapterNavigate = (chapter) => {
-    navigate(`/course/${chapter.slug}`);
+    console.log(chapter);
+    navigate(`/courses/chapter/${chapter.slug}`);
   }
+
+  console.log({chapters})
 
   return (
     <Box sx={{ flexGrow: 1 }}>
