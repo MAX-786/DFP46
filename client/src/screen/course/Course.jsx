@@ -3,6 +3,7 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
+import { useNavigate } from 'react-router-dom'
 
 //import all the images here 
 import Bocce from '../../assets/Bocce.png'
@@ -34,32 +35,41 @@ const chapters = [
   {
     'id': 9,
     'name': 'Ray Optics and Optical Instruments',
-    'src': Searchlight
+    'src': Searchlight,
+    'slug': 'ray-optics'
   }, {
     'id': 10,
     'name': 'Wave Optics',
-    'src': RadioWave
+    'src': RadioWave,
+    'slug': 'wave-optics'
   }, {
     'id': 11,
     'name': 'Dual Nature of Radiation and Matter',
-    'src': Swap
+    'src': Swap,
+    'slug': 'dual-nature-of-radiation-and-matter'
   }, {
     'id': 12,
     'name': 'Atoms',
-    'src': Bocce
+    'src': Bocce,
+    'slug': 'atoms'
   }, {
     'id': 13,
     'name': 'Nuclie',
-    'src': ReactImage
+    'src': ReactImage,
+    'slug': 'nuclie'
   }, {
     'id': 14,
     'name': 'Semiconductors Electronics',
-    'src': Transistor
+    'src': Transistor,
+    'slug': 'semiconductors'
   }
 ]
 
+
 const CourseChapterItem = ({ chapter }) => {
   return <Item>
+    {/* <a href={`http://localhost:5173/chapters/${chapter.slug}`}> */}
+
     <div className='border-10 border-black w-40 h-40 mx-auto'>
       <img
         src={chapter.src}
@@ -67,10 +77,18 @@ const CourseChapterItem = ({ chapter }) => {
       />
     </div>
     <div className='text-md'>{chapter.name}</div>
+    {/* </a> */}
+
   </Item>
 }
 
 export default function Course() {
+  const navigate = useNavigate();
+
+  const handleChapterNavigate = (chapter) => {
+    navigate(`/course/${chapter.slug}`);
+  }
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <div className="w-full  py-6">
@@ -87,7 +105,11 @@ export default function Course() {
       <Grid container spacing={4}>
         {
           chapters.map((chapter) => {
-            return <Grid item md={4} key={chapter.id} sx={{ display: 'flex', justifyContent: 'space-around' }}>
+            return <Grid item md={4}
+              key={chapter.id}
+              sx={{ display: 'flex', justifyContent: 'space-around', cursor: 'pointer' }}
+                onClick={() => handleChapterNavigate(chapter)}
+              >
               <CourseChapterItem chapter={chapter} />
             </Grid>
           })
