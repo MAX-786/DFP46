@@ -4,22 +4,6 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import { useNavigate } from 'react-router-dom'
-
-// //import all the images here 
-import Bocce from '../../assets/Bocce.png'
-import Fan from '../../assets/Fan.png'
-import FullBattery from '../../assets/FullBattery.png'
-import Magnet from '../../assets/Magnet.png'
-import Magnetic from '../../assets/Magnetic.png'
-import Mu from '../../assets/Mu.png'
-import QuickMode from '../../assets/QuickMode.png'
-import RadioWave from '../../assets/RadioWaves.png'
-import Radio from '../../assets/Radio.png'
-import ReactImage from '../../assets/React.png'
-import Searchlight from '../../assets/Searchlight.png'
-import Swap from '../../assets/Swap.png'
-import Tesla from '../../assets/Tesla.png'
-import Transistor from '../../assets/Transistor.png'
 import chapters  from '../../utils/Chapters.js' ;
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -49,12 +33,13 @@ const CourseChapterItem = ({ chapter }) => {
   </Item>
 }
 
+
 export default function Course() {
   const navigate = useNavigate();
 
   const handleChapterNavigate = (chapter) => {
     console.log(chapter);
-    navigate(`/courses/chapter/${chapter.slug}`);
+    navigate(`/courses/${chapter.slug}`);
   }
 
   console.log({chapters})

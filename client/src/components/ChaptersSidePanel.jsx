@@ -92,25 +92,25 @@ export default function SideBar({ chapter, setInfoDetails }) {
 
     return (
         <TreeView
-            aria-label="gmail"
             defaultExpanded={['1']}
             defaultCollapseIcon={<ArrowDropDownIcon />}
             defaultExpandIcon={<ArrowRightIcon />}
             defaultEndIcon={<div style={{ width: 24 }} />}
-            sx={{ height: 264, flexGrow: 1, maxWidth: 260, overflowY: 'auto' }}
+            sx={{  flexGrow: 1, overflowY: 'scroll',height:620 }}
         >
             <StyledTreeItem nodeId="0" labelText={chapter.title} labelIcon={AcUnitIcon}>
                 {chapter.sections.map((section, index) => (
                     <StyledTreeItem
                         key={index}
                         nodeId={String(index + 1)}
-                        labelText={section}
+                        labelText={ `${chapter.id}.${section.id} ${section.name}`}
                         labelIcon={InfoIcon}
                         color="#1a73e8"
                         bgColor="#e8f0fe"
                         colorForDarkMode="#B8E7FB"
                         bgColorForDarkMode="#071318"
-                        onClick={() => setInfoDetails({ chapterId: chapter.slug, sectionIndex: index })}
+                        sx={{marginY:1}}
+                        onClick={() => setInfoDetails({ chapter: chapter, section: section })}
                     />
                 ))}
             </StyledTreeItem>
