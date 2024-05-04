@@ -43,6 +43,15 @@ import Branch from "./screen/dashboard/Branch.jsx";
 import EnrolledStudentHome from "./screen/dashboard/enrolledStudent/EnrolledStudentHome.jsx";
 import UpdateEnrolledStudent from "./screen/dashboard/enrolledStudent/UpdateEnrolledStudent.jsx";
 
+// chapters 
+import RayOptics from "./screen/course/ray-optics/RayOptics.jsx";
+import WaveOptics from "./screen/course/wave-optics/WaveOptics.jsx";
+import DualNature from "./screen/course/dual-nature/DualNature.jsx";
+import Atoms from "./screen/course/atoms/Atoms.jsx";
+import SemiConductors from "./screen/course/semiconductors/SemiConductors.jsx";
+import Nuclie from "./screen/course/nuclie/Nuclie.jsx"; 
+
+
 export default function App() {
   return (
     <Router>
