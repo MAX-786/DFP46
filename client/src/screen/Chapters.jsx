@@ -10,17 +10,18 @@ export default function Chapter({ chapter }) {
 
   return (
     <>
-      {/* <div className="border-2 border-black">
-        <Temp />
-      </div> */}
-      <Grid container spacing={2} sx={{ border: "solid 2px black" }} minHeight={600}>
+      <div className="border-2 border-black" style={{height: "1vh"}}>
+        <Temp props={{infoDetails: infoDetails, setInfoDetails: setInfoDetails}}/>
+      </div>
+      
+      {/* <Grid container spacing={2} sx={{ border: "solid 2px black" }} minHeight={600}>
         <Grid item xs={3}>
           <ChaptersSidePanel chapter={chapter} setInfoDetails={setInfoDetails} />
         </Grid>
         <Grid item xs={9} className="border-4 border-red-800">
           <Section chapter={infoDetails.chapter} section={infoDetails.section} />
         </Grid>
-      </Grid>
+      </Grid> */}
     </>
   )
 };
