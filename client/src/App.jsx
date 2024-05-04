@@ -90,7 +90,7 @@ export default function App() {
             {chaptersData.map((chapter) => (
               <Route
                 key={chapter.id}
-                path={`chapter/${chapter.slug}`}
+                path={`${chapter.slug}`}
                 element={<Chapter chapter={chapter} />}
               />
             ))}
@@ -99,10 +99,10 @@ export default function App() {
             {chaptersData.map((chapter) =>
               chapter.sections.map((section, index) => (
                 <Route
-                  key={`${chapter.id}-${index}`}
-                  path={`chapter/${chapter.slug}/section/${index}`}
+                  key={`${section.id}`}
+                  path={`${chapter.slug}/${section.slug}`}
                   element={
-                    <Section chapterId={chapter.slug} sectionIndex={index} />
+                    <Section chapter={chapter} section={section} />
                   }
                 />
               ))

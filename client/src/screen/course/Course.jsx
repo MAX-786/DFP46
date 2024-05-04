@@ -54,7 +54,7 @@ export default function Course() {
 
   const handleChapterNavigate = (chapter) => {
     console.log(chapter);
-    navigate(`/courses/chapter/${chapter.slug}`);
+    navigate(`/courses/${chapter.slug}`);
   }
 
   console.log({chapters})
