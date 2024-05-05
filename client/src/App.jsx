@@ -48,7 +48,7 @@ import Section from "./screen/Sections.jsx";
 
 // chapters
 
-import chaptersData from "./utils/Chapters.js"
+import chaptersData from "./utils/Chapters.jsx"
 
 export default function App() {
   return (
