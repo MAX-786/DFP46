@@ -6,6 +6,7 @@ import ReactImage from "../assets/React.png";
 import Searchlight from "../assets/Searchlight.png";
 import Swap from "../assets/Swap.png";
 import Transistor from "../assets/Transistor.png";
+import SemiconductorData from "./Semiconductor/data.jsx";
 
 const chaptersData = [
   {
@@ -911,43 +912,7 @@ const chaptersData = [
     src: Transistor,
     slug: "semiconductors",
     name: "Semiconductors Electronics",
-    sections: [
-      {
-        id: 1,
-        name: "Introduction",
-        slug: "introduction",
-      },
-      {
-        id: 2,
-        name: "Classification of Metals, Conductors and Semiconductors",
-        slug: "classification-of-metals-conductors-and-semiconductors",
-      },
-      {
-        id: 3,
-        name: "Intrinsic Semiconductor",
-        slug: "intrinsic-semiconductor",
-      },
-      {
-        id: 4,
-        name: "Extrinsic Semiconductor",
-        slug: "extrinsic-semiconductor",
-      },
-      {
-        id: 5,
-        name: "p-n Junction",
-        slug: "p-n-junction",
-      },
-      {
-        id: 6,
-        name: "Semiconductor Diode",
-        slug: "semiconductor-diode",
-      },
-      {
-        id: 7,
-        name: "Application of Junction Diode as a Rectifier",
-        slug: "application-of-junction-diode-as-a-rectifier",
-      },
-    ],
+    sections: SemiconductorData,
   },
 ];
 
