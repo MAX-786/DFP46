@@ -18,14 +18,17 @@ export default function Section({ chapter, section }) {
 
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
-  const [openLabComponents, setOpenLabComponents] = useState({});
+  const [openLabComponents, setOpenLabComponents] = useState(false);
 
-  const handleClick = (index) => {
-    setOpenLabComponents({
-      ...openLabComponents,
-      [index]: !openLabComponents[index],
-    });
+  const handleClick = () => {
+    setOpenLabComponents(!openLabComponents);
   };
+  // const handleClick = (index) => {
+  //   setOpenLabComponents({
+  //     ...openLabComponents,
+  //     [index]: !openLabComponents[index],
+  //   });
+  // };
 
     const scrollToTop = () => {
         window.scrollTo({
@@ -89,12 +92,13 @@ export default function Section({ chapter, section }) {
                 borderRadius={1}
                 p={1}
               >
-                <Button onClick={() => handleClick(index)}>
-                  {openLabComponents[index]
+                <Button onClick={() => handleClick()}>
+                  {openLabComponents
                     ? "Hide Lab Component"
                     : "Show Lab Component"}
                 </Button>
-                <Collapse in={openLabComponents[index]}>
+                {/* <Collapse in={openLabComponents[index]}> */}
+                <Collapse in={openLabComponents}>
                   <Box mt={4} />
                   {<section.lab />}
                 </Collapse>
