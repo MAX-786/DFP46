@@ -122,7 +122,7 @@ const chaptersData = [
         subtopic: [
           {
             id: 0,
-            title: "Hugens Principle ",
+            title: "Huygens Principle ",
             text: (
               <>
                 <p>
@@ -685,16 +685,16 @@ const chaptersData = [
         isLab: false,
         lab: "",
       },
-      {
-        id: 6,
-        name: "Diffraction",
-        slug: "diffraction",
-      },
-      {
-        id: 7,
-        name: "Polarisation",
-        slug: "polarisation",
-      },
+      // {
+      //   id: 6,
+      //   name: "Diffraction",
+      //   slug: "diffraction",
+      // },
+      // {
+      //   id: 7,
+      //   name: "Polarisation",
+      //   slug: "polarisation",
+      // },
     ],
   },
   {
