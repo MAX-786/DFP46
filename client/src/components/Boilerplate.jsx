@@ -9,8 +9,9 @@ export default function Boilerplate() {
     <section className="boilerplate">
       <header className="my-4">
 
-      <Navbar />
+        <Navbar />
       </header>
+
       <Outlet />
       <Footer />
     </section>

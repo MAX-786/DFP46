@@ -7,6 +7,7 @@ import Searchlight from "../assets/Searchlight.png";
 import Swap from "../assets/Swap.png";
 import Transistor from "../assets/Transistor.png";
 import SemiconductorData from "./Semiconductor/data.jsx";
+import NuclieData from "./Nuclie/data.jsx"
 
 // Required imports for WaveOptics
 import React from "react";
@@ -1467,43 +1468,7 @@ const chaptersData = [
     src: ReactImage,
     slug: "nuclie",
     name: "Nuclie",
-    sections: [
-      {
-        id: 1,
-        name: "Introduction",
-        slug: "introduction",
-      },
-      {
-        id: 2,
-        name: "Atomic Masses and Composition of Nucleus",
-        slug: "atomic-masses-and-composition-of-nucleus",
-      },
-      {
-        id: 3,
-        name: "Size of the Nucleus",
-        slug: "size-of-the-nucleus",
-      },
-      {
-        id: 4,
-        name: "Mass-Energy and Nuclear Binding Energy",
-        slug: "mass-energy-and-nuclear-binding-energy",
-      },
-      {
-        id: 5,
-        name: "Nuclear Force",
-        slug: "nuclear-force",
-      },
-      {
-        id: 6,
-        name: "Radioactivity",
-        slug: "radioactivity",
-      },
-      {
-        id: 7,
-        name: "Nuclear Energy",
-        slug: "nuclear-energy",
-      },
-    ],
+    sections: NuclieData
   },
   {
     id: 14,
