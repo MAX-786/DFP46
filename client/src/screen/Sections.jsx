@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Stack,
   Typography,
@@ -20,6 +20,10 @@ export default function Section({ chapter, section }) {
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const [openLabComponents, setOpenLabComponents] = useState(false);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const handleClick = () => {
     setOpenLabComponents(!openLabComponents);
   };
@@ -30,23 +34,21 @@ export default function Section({ chapter, section }) {
   //   });
   // };
 
-    const scrollToTop = () => {
-        window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-        });
-    };
+    // const scrollToTop = () => {
+    //     window.scrollTo({
+    //     top: 0,
+    //     behavior: "smooth",
+    //     });
+    // };
 
   return (
-    <div>
-
-      <Container sx={{padding: "auto 0"}}>
+      <Container>
         {/* {chapter.sections.map((item, index) => ( */}
           <>
             <Typography variant="h4">{section.name}</Typography>
             <Box mt={2} />
             {section.subtopic.map((subitem, subindex) => (
-              <Box>
+              <Box key={subindex}>
                 {subitem.title && (
                   <Typography variant="h5" padding={1.5}>
                     {subitem.title}
@@ -92,7 +94,7 @@ export default function Section({ chapter, section }) {
                 borderRadius={1}
                 p={1}
               >
-                <Button onClick={() => handleClick()}>
+                <Button variant="contained" onClick={() => handleClick()}>
                   {openLabComponents
                     ? "Hide Lab Component"
                     : "Show Lab Component"}
@@ -107,11 +109,10 @@ export default function Section({ chapter, section }) {
             <Box mt={4} />
           </>
         {/* ))} */}
-        <Button variant="contained" color="primary" onClick={scrollToTop}>
+        {/* <Button variant="contained" color="primary" onClick={scrollToTop}>
           Scroll to Top
-        </Button>
+        </Button> */}
       </Container>
 
-    </div>
   );
 }
