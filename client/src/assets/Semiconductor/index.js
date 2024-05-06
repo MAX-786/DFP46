@@ -5,6 +5,13 @@ import semiconductor from "./ClassificationOfSolids/semiconductor.png";
 
 export { metal, insulator, semiconductor };
 
+import fullWave from "./fullWave.jpg";
+import halfWave from "./fullWave.jpg";
+import halfWaveGraph from "./halfWaveGraph.jpg";
+import fullWaveGraph from "./fullWaveGraph.jpg";
+
+export { fullWave, halfWave, halfWaveGraph, fullWaveGraph };
+
 import or_gate_symbol from "./LogicGates/or_gate_symbol.png";
 import and_gate_symbol from "./LogicGates/and_gate_symbol.png";
 import not_gate_symbol from "./LogicGates/not_gate_symbol.png";

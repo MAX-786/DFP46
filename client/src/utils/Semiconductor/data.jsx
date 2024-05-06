@@ -2,7 +2,9 @@ import intrinsic_semiconductor from "../../assets/Semiconductor/intrinsic_semico
 import extrinsic_semiconductor from "../../assets/Semiconductor/extrinsic_semiconductor.png";
 
 import {
-  metal, insulator, semiconductor
+  metal,
+  insulator,
+  semiconductor,
 } from "/src/assets/Semiconductor/index.js";
 import {
   or_gate_symbol,
@@ -17,21 +19,27 @@ import {
   nor_gate_table,
 } from "/src/assets/Semiconductor/index.js";
 
-
+import {
+  halfWave,
+  fullWave,
+  halfWaveGraph,
+  fullWaveGraph,
+} from "/src/assets/Semiconductor/index.js";
 
 import Lab1 from "./labs/Lab1";
 import TypeOfSemiconductor from "./labs/TypeOfSemiconductor";
 import PNJunction from "./labs/PNJunction";
 import Lab10 from "./labs/LogicGate";
+import Rectifier from "./labs/Rectifier";
 
 const SemiconductorData = [
   {
-    id: 1,
+    id: 0,
     name: "Introduction",
     slug: "introduction",
     subtopic: [
       {
-        id: 0,
+        id: 0.1,
         title: "",
         text: (
           <>
@@ -65,12 +73,12 @@ const SemiconductorData = [
     lab: "",
   },
   {
-    id: 2,
+    id: 1,
     slug: "classification-of-solids",
     name: "Classification of solids",
     subtopic: [
       {
-        id: 0,
+        id: 1.1,
         title: "Based on Conductivity: ",
         text: (
           <>
@@ -112,7 +120,7 @@ const SemiconductorData = [
         image: [],
       },
       {
-        id: 1,
+        id: 1.2,
         title: "Based on Energy Bands: ",
         text: (
           <>
@@ -170,12 +178,12 @@ const SemiconductorData = [
     lab: Lab1,
   },
   {
-    id: 3,
+    id: 2,
     name: "Intrinsic Semiconductor",
     slug: "intrinsic-semiconductor",
     subtopic: [
       {
-        id: 0,
+        id: 2.1,
         title: "",
         text: (
           <>
@@ -233,12 +241,12 @@ const SemiconductorData = [
     lab: "",
   },
   {
-    id: 4,
+    id: 3,
     name: "Extrinsic Semiconductor",
     slug: "extrinsic-semiconductor",
     subtopic: [
       {
-        id: 0,
+        id: 3.1,
         title: "",
         text: (
           <>
@@ -279,7 +287,7 @@ const SemiconductorData = [
         image: [extrinsic_semiconductor],
       },
       {
-        id: 1,
+        id: 3.2,
         title: "n-type Semiconductor",
         text: (
           <>
@@ -320,7 +328,7 @@ const SemiconductorData = [
         image: [],
       },
       {
-        id: 2,
+        id: 3.3,
         title: "p-type Semiconductor",
         text: (
           <>
@@ -384,12 +392,12 @@ const SemiconductorData = [
     lab: TypeOfSemiconductor,
   },
   {
-    id: 5,
+    id: 4,
     name: "p-n Junction",
     slug: "p-n-junction",
     subtopic: [
       {
-        id: 0,
+        id: 4.1,
         title: "",
         text: (
           <>
@@ -400,7 +408,7 @@ const SemiconductorData = [
         image: [],
       },
       {
-        id: 1,
+        id: 4.2,
         title: "p-n junction formation",
         text: (
           <>
@@ -444,12 +452,12 @@ const SemiconductorData = [
     ],
   },
   {
-    id: 6,
+    id: 5,
     name: "Semiconductor Diode",
     slug: "semiconductor-diode",
     subtopic: [
       {
-        id: 0,
+        id: 5.1,
         title: "",
         text: (
           <>
@@ -461,7 +469,7 @@ const SemiconductorData = [
         image: [],
       },
       {
-        id: 1,
+        id: 5.2,
         title: "p-n junction diode under forward bias",
         text: (
           <>
@@ -483,7 +491,7 @@ const SemiconductorData = [
         image: [],
       },
       {
-        id: 2,
+        id: 5.3,
         title: "p-n junction diode under reverse bias",
         text: (
           <>
@@ -504,7 +512,7 @@ const SemiconductorData = [
         image: [],
       },
       {
-        id: 3,
+        id: 5.4,
         title: "",
         text: (
           <p>
@@ -540,12 +548,12 @@ const SemiconductorData = [
     lab: PNJunction,
   },
   {
-    id: 7,
+    id: 6,
     name: "Application of Junction Diode as a Rectifier",
     slug: "application-of-junction-diode-as-a-rectifier",
     subtopic: [
       {
-        id: 0,
+        id: 6.1,
         title: "",
         text: (
           <>
@@ -558,7 +566,7 @@ const SemiconductorData = [
         image: [],
       },
       {
-        id: 1,
+        id: 6.2,
         title: "Half-wave Rectifier",
         text: (
           <>
@@ -581,10 +589,10 @@ const SemiconductorData = [
             </p>
           </>
         ),
-        image: [],
+        image: [halfWave, halfWaveGraph],
       },
       {
-        id: 2,
+        id: 6.3,
         title: "Full-wave Rectifier",
         text: (
           <>
@@ -608,10 +616,10 @@ const SemiconductorData = [
             </p>
           </>
         ),
-        image: [],
+        image: [fullWave, fullWaveGraph],
       },
       {
-        id: 3,
+        id: 6.4,
         title: "",
         text: (
           <>
@@ -644,8 +652,8 @@ const SemiconductorData = [
         image: [],
       },
     ],
-    isLab: false,
-    lab: "",
+    isLab: true,
+    lab: Rectifier,
   },
   // {
   //   id: 7,
@@ -723,12 +731,12 @@ const SemiconductorData = [
   //   lab: "",
   // },
   {
-    id: 8,
+    id: 10,
     name: "Logic Gates",
     slug: "logic-gates",
     subtopic: [
       {
-        id: 0,
+        id: 10.1,
         title: "",
         text: (
           <>
@@ -747,7 +755,7 @@ const SemiconductorData = [
         image: [],
       },
       {
-        id: 1,
+        id: 10.2,
         title: "OR Gate",
         text: (
           <>
@@ -759,7 +767,7 @@ const SemiconductorData = [
         image: [or_gate_symbol, or_gate_table],
       },
       {
-        id: 2,
+        id: 10.3,
         title: "AND Gate",
         text: (
           <>
@@ -770,7 +778,7 @@ const SemiconductorData = [
         image: [and_gate_symbol, and_gate_table],
       },
       {
-        id: 3,
+        id: 10.4,
         title: "NOT Gate",
         text: (
           <>
@@ -781,7 +789,7 @@ const SemiconductorData = [
         image: [not_gate_symbol, not_gate_table],
       },
       {
-        id: 4,
+        id: 10.5,
         title: "NAND Gate(NOT AND)",
         text: (
           <>
@@ -794,7 +802,7 @@ const SemiconductorData = [
         image: [nand_gate_symbol, nand_gate_table],
       },
       {
-        id: 5,
+        id: 10.6,
         title: "NOR Gate(NOT OR)",
         text: (
           <>
