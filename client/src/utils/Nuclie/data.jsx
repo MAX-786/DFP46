@@ -1,5 +1,5 @@
 import { BlockMath, InlineMath } from "react-katex";
-import { fig1, fig2 } from '../../assets/Nuclie/index.js'
+import { fig1, fig2,fig3 } from '../../assets/Nuclie/index.js'
 import NuclearChainReaction from "../../components/NuclearChainReaction/NuclearReact.jsx";
 import Derivation from "./Derivation/Derivation.jsx";
 
@@ -237,7 +237,7 @@ const NuclieData = [
                         In any radioactive sample, which undergoes α, β or γ-decay, it is found that the number of nuclei undergoing the decay per unit time is proportional to the total number of nuclei in the sample. If N is the number of nuclei in the sample and ∆N undergo decay in time ∆t then
                     </>
                 ),
-                image: []
+                image: [fig3]
             }
         ],
         isLab: true,

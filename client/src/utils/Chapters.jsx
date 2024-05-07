@@ -1,11 +1,11 @@
 import "katex/dist/katex.min.css";
 import { BlockMath, InlineMath } from "react-katex";
-import Bocce from "../assets/Bocce.png";
-import RadioWave from "../assets/RadioWaves.png";
-import ReactImage from "../assets/React.png";
-import Searchlight from "../assets/Searchlight.png";
-import Swap from "../assets/Swap.png";
-import Transistor from "../assets/Transistor.png";
+import Bocce from "../assets/Bocce2.png";
+import RadioWave from "../assets/RadioWaves3.png";
+import ReactImage from "../assets/React2.png";
+import Searchlight from "../assets/Searchlight3.png";
+import Swap from "../assets/Swap2.png";
+import Transistor from "../assets/Transistor2.png";
 import SemiconductorData from "./Semiconductor/data.jsx";
 import NuclieData from "./Nuclie/data.jsx"
 import WaveOpticsData from "./WaveOptics/data.jsx"
