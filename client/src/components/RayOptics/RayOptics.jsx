@@ -5,7 +5,7 @@ const RayOptics = () => {
   return (
     <div className="website-iframe-container">
       <iframe
-        src="http://localhost:5500/"
+        src="https://max-786.github.io/website-iframe/"
         title="My website"
         className="website-iframe"
       ></iframe>
