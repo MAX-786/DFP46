@@ -8,6 +8,8 @@ import Swap from "../assets/Swap2.png";
 import Transistor from "../assets/Transistor2.png";
 import SemiconductorData from "./Semiconductor/data.jsx";
 import NuclieData from "./Nuclie/data.jsx"
+import WaveOpticsData from "./WaveOptics/data.jsx"
+
 
 const chaptersData = [
   {
@@ -60,43 +62,7 @@ const chaptersData = [
     src: RadioWave,
     slug: "wave-optics",
     name: "Wave Optics",
-    sections: [
-      {
-        id: 1,
-        name: "Introduction",
-        slug: "introduction",
-      },
-      {
-        id: 2,
-        name: "Huygens Principle",
-        slug: "huygens-principle",
-      },
-      {
-        id: 3,
-        name: "Refraction and Reflection of Plane Waves using Huygens Principle",
-        slug: "refraction-and-reflection-of-plane-waves-using-huygens-principle",
-      },
-      {
-        id: 4,
-        name: "Coherent and Incoherent Addition of Waves",
-        slug: "coherent-and-incoherent-addition-of-waves",
-      },
-      {
-        id: 5,
-        name: "Interference of Light Waves and Young's Experiment",
-        slug: "interference-of-light-waves-and-youngs-experiment",
-      },
-      {
-        id: 6,
-        name: "Diffraction",
-        slug: "diffraction",
-      },
-      {
-        id: 7,
-        name: "Polarisation",
-        slug: "polarisation",
-      },
-    ],
+    sections: WaveOpticsData,
   },
   {
     id: 11,
