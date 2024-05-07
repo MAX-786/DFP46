@@ -1,6 +1,7 @@
 import "katex/dist/katex.min.css";
 import { BlockMath, InlineMath } from "react-katex";
 import React from "react";
+import RayOptics from "../../components/RayOptics/RayOptics";
 
 const RayOpticsData = [
   {
@@ -611,6 +612,7 @@ const RayOpticsData = [
             atom, the electron revolves round the nucleus much like the way a
             planet revolves round the sun. However, we shall see that there are
             some serious difficulties in accepting such a model.
+            <RayOptics />
           </>
         ),
         image: [],
