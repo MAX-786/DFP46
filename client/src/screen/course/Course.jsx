@@ -11,14 +11,15 @@ import chapters  from '../../utils/Chapters.jsx' ;
 
 const  MultiActionAreaCard = ({chapter}) => {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ width: 300}}>
       <CardActionArea>
         <CardMedia
           component="img"
           image={chapter.src}
+          sx={{ maxHeight: 250,maxWidth:250,marginX:'auto' }} // Add this line to fix the height and width
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography gutterBottom variant="h5" component="div" sx={{textAlign:'center'}}>
             {chapter.name}
           </Typography>
         </CardContent>
@@ -33,11 +34,11 @@ export default function Course() {
   const navigate = useNavigate();
 
   const handleChapterNavigate = (chapter) => {
-    console.log(chapter);
+    // console.log(chapter);
     navigate(`/courses/${chapter.slug}`);
   }
 
-  console.log({chapters})
+  // console.log({chapters})
 
   return (
     <Container >

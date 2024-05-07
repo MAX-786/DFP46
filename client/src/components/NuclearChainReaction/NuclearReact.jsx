@@ -33,7 +33,50 @@ const Shockwave = ({ position }) => {
         };
     }, [radius]);
 
-    return <div className="shockwave" style={{ left: `${position.x}px`, top: `${position.y}px`, width: `${radius}px`, height: `${radius}px` }} />;
+    return (
+        <div
+            style={{
+                position: 'absolute',
+                borderRadius: '50%',
+                transform: 'translate(-50%, -50%)',
+                animation: 'shockwaveAnimation 0.8s ease-out forwards',
+                left: `${position.x}px`,
+                top: `${position.y}px`,
+                width: `${radius}px`,
+                height: `${radius}px`,
+            }}
+        >
+            {/* Texture for the shockwave */}
+            <div
+                style={{
+                    position: 'absolute',
+                    width: '100%',
+                    height: '100%',
+                    background:
+                        'radial-gradient(circle, rgba(96, 94, 94, 0.8) 10%, transparent 70%)',
+                    borderRadius: '50%',
+                    opacity: '0.8',
+                }}
+            ></div>
+            {/* Keyframes for shockwave animation */}
+            <style>
+                {`
+                @keyframes shockwaveAnimation {
+                    from {
+                        width: 0;
+                        height: 0;
+                        opacity: 1;
+                    }
+                    to {
+                        width: 500px;
+                        height: 500px;
+                        opacity: 0;
+                    }
+                }
+                `}
+            </style>
+        </div>
+    );
 };
 
 
@@ -47,6 +90,8 @@ const NuclearChainReaction = () => {
 
     const [shockwaves, setShockwaves] = useState([]);
     const [playmusic, setPlaymusic] = useState(true);
+
+    const [initialPosNeutron, setInitialPosNeutron] = useState({ x: 45, y: 200, angle: 0, isMoving: false })
     // Ref for the blast sound audio
     // const audioRef = useRef(new Audio(ExplosionSound));
 
@@ -106,6 +151,7 @@ const NuclearChainReaction = () => {
         setNeutrons([]);
         setIsMoving(false);
         setAtomsCoordinates([]);
+        setInitialPosNeutron({ x: 45, y: 200, angle: 0, isMoving: false })
     };
 
 
@@ -124,9 +170,9 @@ const NuclearChainReaction = () => {
                         <div className=" z-10 bg-gray-400 rounded-full w-[90%] h-[80%] relative ">
                             {/* Neutron component for initial neutron */}
                             <Neutron
-                                x={45}
-                                y={200}
-                                angle={0}
+                                x={initialPosNeutron.x}
+                                y={initialPosNeutron.y}
+                                angle={initialPosNeutron.angle}
                                 isMoving={isMoving}
                                 atomsCoordinates={atomsCoordinates}
                                 onCollision={handleCollision}
@@ -183,7 +229,7 @@ const NuclearChainReaction = () => {
                 <Button
                     variant="contained"
                     endIcon={<SendIcon />}
-                    onClick={() => setIsMoving(!isMoving)}
+                    onClick={() => setIsMoving(true)}
                     sx={{ marginX: 4 }}
                 >
                     Blast

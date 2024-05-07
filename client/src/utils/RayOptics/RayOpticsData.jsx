@@ -1,3 +1,4 @@
+
 import { BlockMath, InlineMath } from "react-katex";
 import refraction from "../../assets/RayOptics/refraction.png";
 import Refraction from "./labs/Refraction";
