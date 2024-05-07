@@ -79,13 +79,13 @@ export default function Home() {
         </div>
 
         <div className="courses">
-          <div className="box">
+          <div className="flex w-full ">
             {data && data.length > 0 ? (
               data.map((value, index) => {
                 return (
                   <div
                     key={index}
-                    className="box1"
+                    className=" overflow-hidden rounded-lg shadow-md m-2 cursor-pointer hover:shadow-lg"
                     // onClick={() =>
                     //   navigate("course/course-detail", { state: value })
                     // }
@@ -93,11 +93,11 @@ export default function Home() {
                     <img
                       src={value.image}
                       alt="image not found"
-                      width="300px"
+                      className="w-full h-[15rem]"
                     />
-                    <div className="description">
-                      <h1>{value.heading}</h1>
-                      <p>{value.content}</p>
+                    <div className="w-full p-[1rem] flex flex-col justify-start items-start ">
+                      <h1 className="py-[1rem] px-[0rem] text-[1.6rem] text-[#0c0015] ">{value.heading}</h1>
+                      <p className="py-[0.2rem] text-[#0c0015]">{value.content}</p>
                       {/* <p>no. of Quiz: {value.noOfQuiz}</p> */}
                       {/* <h2>RS {value.price}</h2> */}
                     </div>
