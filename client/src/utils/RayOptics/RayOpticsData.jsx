@@ -2,13 +2,73 @@
 import { BlockMath, InlineMath } from "react-katex";
 import refraction from "../../assets/RayOptics/refraction.png";
 import Refraction from "./labs/Refraction";
-
+import RayOptics from "../../components/RayOptics/RayOptics";
 const RayOpticsData = [
-  // {
-  // id: 1,
-  // name: "Introduction",
-  // slug: "introduction",
-  // },
+  {
+    id: 1,
+    name: "Introduction",
+    slug: "introduction",
+    subtopic: [
+      {
+        id: 0,
+        title: "",
+        text: (
+          <>
+            When we talk about light, we often imagine it as a beam moving
+            in a straight line. This simplified way of understanding light's
+            behavior is what we call ray optics. <br />
+            <br /> In ray optics, we study how light travels through
+            different materials and interacts with various objects. Imagine
+            you're standing in a room with sunlight streaming through a
+            window. Have you ever noticed how the sunlight seems to travel
+            in straight lines until it hits something, like a wall or a
+            mirror? That's exactly what we explore in ray optics. We want to
+            understand why light behaves this way and how we can predict its
+            path.
+            <br />
+            <br /> Ray optics is like drawing a map for light. By studying
+            how light rays move and interact, we can explain many phenomena,
+            from how a magnifying glass focuses light to how rainbows form.
+            It's an essential part of understanding the world around us and
+            how we see things.
+            <h2>Particle Model of Light</h2>
+            <br />
+            Sir Isaac Newton, known for his groundbreaking work in
+            mathematics and physics, also made significant contributions to
+            the study of light. He built upon the ideas of French
+            philosopher René Descartes, who proposed that light is made up
+            of tiny particles called corpuscles. Newton expanded on this
+            corpuscular model, suggesting that these particles have no mass
+            and behave like tiny elastic balls. <br />
+            Newton used his
+            understanding of mechanics to explain how light behaves when it
+            hits surfaces. He likened the reflection of light from a smooth
+            surface, like a mirror, to the way a ball bounces off a flat
+            surface. Just as a bouncing ball retains its velocity after
+            hitting the ground, Newton proposed that light particles reflect
+            off smooth surfaces with the same speed and direction, except
+            for the component perpendicular to the surface.<br />
+             To explain
+            refraction, the bending of light when it passes from one medium
+            to another, Newton suggested that light particles move faster in
+            materials like water or glass compared to air. However, later
+            experiments showed that the speed of light is actually slower in
+            these materials.<br />
+             While Newton's particle model explained some
+            phenomena well, it struggled to account for others. For example,
+            the colors seen in thin films of oil on water or the partial
+            reflection of light in ponds presented challenges. Newton
+            proposed that some light particles are reflected while others
+            are transmitted, but he struggled to explain why some are
+            reflected and others are not. This unpredictability in behavior
+            posed a dilemma for the particle model of light, unlike the more
+            consistent explanations provided by the wave theory of light.
+          </>
+        ),
+        image: [],
+      },
+    ],
+  },
   // {
   // id: 2,
   // name: "Reflection of Light by Spherical Mirrors",
@@ -78,6 +138,7 @@ const RayOpticsData = [
               refraction. The apparent depth is the real depth divided by the
               refractive index of the medium.
             </p>
+            <RayOptics />
           </>
         ),
         image: [],
@@ -109,3 +170,4 @@ const RayOpticsData = [
 ];
 
 export default RayOpticsData;
+ 
