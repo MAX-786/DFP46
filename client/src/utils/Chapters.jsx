@@ -9,7 +9,7 @@ import Transistor from "../assets/Transistor.png";
 import SemiconductorData from "./Semiconductor/data.jsx";
 import NuclieData from "./Nuclie/data.jsx"
 import WaveOpticsData from "./WaveOptics/data.jsx"
-
+import RayOpticsData from "./RayOptics/data.jsx"
 
 const chaptersData = [
   {
@@ -18,43 +18,7 @@ const chaptersData = [
     src: Searchlight,
     slug: "ray-optics",
     name: "Ray Optics and Optical Instruments",
-    sections: [
-      {
-        id: 1,
-        name: "Introduction",
-        slug: "introduction",
-      },
-      {
-        id: 2,
-        name: "Reflection of Light by Spherical Mirrors",
-        slug: "reflection-of-light-by-spherical-mirrors",
-      },
-      {
-        id: 3,
-        name: "Refraction",
-        slug: "refraction",
-      },
-      {
-        id: 4,
-        name: "Total Internal Reflection",
-        slug: "total-internal-reflection",
-      },
-      {
-        id: 5,
-        name: "Refraction at Spherical Surfaces and by Lenses",
-        slug: "refraction-at-spherical-surfaces-and-by-lenses",
-      },
-      {
-        id: 6,
-        name: "Refraction through a Prism",
-        slug: "refraction-through-a-prism",
-      },
-      {
-        id: 7,
-        name: "Optical Instruments",
-        slug: "optical-instruments",
-      },
-    ],
+    sections: RayOpticsData,
   },
   {
     id: 10,
