@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hertz Experiment Simulation</title>
+<style>
+    body { margin: 0; font-family: Arial, sans-serif; }
+    canvas { display: block; }
+    button, input { margin: 5px; }
+    #output { position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); padding: 5px; }
+</style>
+</head>
+<body>
+<div id="output" style="width: 15rem;">
+    <h3 style="text-wrap: wrap;">Simulation Output for Hertz's Experiment</h3>
+    <p>Light Frequency: <span id="lightFreqOutput">0</span></p>
+    <p>Light Intensity: <span id="lightIntensityOutput">0</span></p>
+    <p>Light Speed: <span id="lightSpeedOutput">0</span></p>
+    <p>Light Position X: <span id="lightPosXOutput">0</span></p>
+    <p>Light Position Y: <span id="lightPosYOutput">0</span></p>
+    <p>Light Position Z: <span id="lightPosZOutput">0</span></p>
+    <p>Voltage: <span id="voltageOutput">0</span></p>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+    // Setup
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    // Constants
+    let lightFrequency = 0.1;
+    let lightIntensity = 1;
+    let lightSpeed = 0.01;
+    let lightPositionX = 0;
+    let lightPositionY = 2;
+    let lightPositionZ = 0;
+    let numParticles = 1000;
+    let voltage = 1;
+
+    // Update output function
+    function updateOutput() {
+        document.getElementById('lightFreqOutput').textContent = lightFrequency.toFixed(2);
+        document.getElementById('lightIntensityOutput').textContent = lightIntensity.toFixed(2);
+        document.getElementById('lightSpeedOutput').textContent = lightSpeed.toFixed(4);
+        document.getElementById('lightPosXOutput').textContent = lightPositionX.toFixed(2);
+        document.getElementById('lightPosYOutput').textContent = lightPositionY.toFixed(2);
+        document.getElementById('lightPosZOutput').textContent = lightPositionZ.toFixed(2);
+        document.getElementById('voltageOutput').textContent = voltage.toFixed(2);
+    }
+
+    // First metal surface
+    const metalGeometry1 = new THREE.BoxGeometry(5, 0.1, 5);
+    const metalMaterial1 = new THREE.MeshLambertMaterial({ color: 0xaaaaaa });
+    const metal1 = new THREE.Mesh(metalGeometry1, metalMaterial1);
+    scene.add(metal1);
+
+    // Second metal surface
+    const metalGeometry2 = new THREE.BoxGeometry(5, 0.1, 5);
+    const metalMaterial2 = new THREE.MeshLambertMaterial({ color: 0xaaaaaa });
+    const metal2 = new THREE.Mesh(metalGeometry2, metalMaterial2);
+    metal2.position.set(0, -2, 0); // Position below the first surface
+    scene.add(metal2);
+
+    // Light source
+    const light = new THREE.PointLight(0xffffff, lightIntensity, 10);
+    light.position.set(lightPositionX, lightPositionY, lightPositionZ);
+    scene.add(light);
+
+    // Electrons (particles)
+    const particles = [];
+    const particleGeometry = new THREE.SphereGeometry(0.05, 32, 32);
+    const particleMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
+    for (let i = 0; i < numParticles; i++) {
+        const particle = new THREE.Mesh(particleGeometry, particleMaterial);
+        particle.position.set(Math.random() * 5 - 2.5, 0.1, Math.random() * 5 - 2.5);
+        particles.push(particle);
+        scene.add(particle);
+    }
+
+    camera.position.set(0, 3, 8);
+    camera.lookAt(0, 0, 0);
+
+    // Animation loop
+    function animate() {
+        requestAnimationFrame(animate);
+        particles.forEach(particle => {
+            if (particle.position.y > 0) {
+                particle.position.y -= lightSpeed;
+            } else {
+                particle.position.y = 0.1;
+                particle.position.x = Math.random() * 5 - 2.5;
+                particle.position.z = Math.random() * 5 - 2.5;
+            }
+        });
+        light.intensity = Math.sin(lightFrequency) * lightIntensity;
+        light.position.set(lightPositionX, lightPositionY, lightPositionZ);
+        updateOutput();
+        renderer.render(scene, camera);
+    }
+    animate();
+
+    // Responsive window resize
+    window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+    // Light frequency control
+    const freqUpButton = document.createElement('button');
+    freqUpButton.textContent = 'Increase Frequency';
+    freqUpButton.addEventListener('click', () => {
+        lightFrequency += 0.1;
+    });
+    document.body.appendChild(freqUpButton);
+
+    const freqDownButton = document.createElement('button');
+    freqDownButton.textContent = 'Decrease Frequency';
+    freqDownButton.addEventListener('click', () => {
+        lightFrequency -= 0.1;
+        if (lightFrequency < 0.1) {
+            lightFrequency = 0.1;
+        }
+    });
+    document.body.appendChild(freqDownButton);
+
+    // Light intensity control
+    const intensityUpButton = document.createElement('button');
+    intensityUpButton.textContent = 'Increase Intensity';
+    intensityUpButton.addEventListener('click', () => {
+        lightIntensity += 0.1;
+    });
+    document.body.appendChild(intensityUpButton);
+
+    const intensityDownButton = document.createElement('button');
+    intensityDownButton.textContent = 'Decrease Intensity';
+    intensityDownButton.addEventListener('click', () => {
+        lightIntensity -= 0.1;
+        if (lightIntensity < 0.1) {
+            lightIntensity = 0.1;
+        }
+    });
+    document.body.appendChild(intensityDownButton);
+
+    // Light speed control
+    const speedUpButton = document.createElement('button');
+    speedUpButton.textContent = 'Increase Speed';
+    speedUpButton.addEventListener('click', () => {
+        lightSpeed += 0.001;
+    });
+    document.body.appendChild(speedUpButton);
+
+    const speedDownButton = document.createElement('button');
+    speedDownButton.textContent = 'Decrease Speed';
+    speedDownButton.addEventListener('click', () => {
+        lightSpeed -= 0.001;
+        if (lightSpeed < 0) {
+            lightSpeed = 0;
+        }
+    });
+    document.body.appendChild(speedDownButton);
+
+    // Light position control
+    const lightPosXInput = document.createElement('input');
+    lightPosXInput.type = 'number';
+    lightPosXInput.value = lightPositionX;
+    document.body.appendChild(lightPosXInput);
+
+    const lightPosYInput = document.createElement('input');
+    lightPosYInput.type = 'number';
+    lightPosYInput.value = lightPositionY;
+    document.body.appendChild(lightPosYInput);
+
+    const lightPosZInput = document.createElement('input');
+    lightPosZInput.type = 'number';
+    lightPosZInput.value = lightPositionZ;
+    document.body.appendChild(lightPosZInput);
+
+    const setLightPosButton = document.createElement('button');
+    setLightPosButton.textContent = 'Set Light Position';
+    setLightPosButton.addEventListener('click', () => {
+        lightPositionX = parseFloat(lightPosXInput.value);
+        lightPositionY = parseFloat(lightPosYInput.value);
+        lightPositionZ = parseFloat(lightPosZInput.value);
+    });
+    document.body.appendChild(setLightPosButton);
+
+    // Voltage control
+    const voltageUpButton = document.createElement('button');
+    voltageUpButton.textContent = 'Increase Voltage';
+    voltageUpButton.addEventListener('click', () => {
+        voltage += 1;
+    });
+    document.body.appendChild(voltageUpButton);
+
+    const voltageDownButton = document.createElement('button');
+    voltageDownButton.textContent = 'Decrease Voltage';
+    voltageDownButton.addEventListener('click', () => {
+        voltage -= 1;
+        if (voltage < 1) {
+            voltage = 1;
+        }
+    });
+    document.body.appendChild(voltageDownButton);
+
+    // Particle number control
+    const numParticlesInput = document.createElement('input');
+    numParticlesInput.type = 'number';
+    numParticlesInput.value = numParticles;
+    document.body.appendChild(numParticlesInput);
+
+    const numParticlesButton = document.createElement('button');
+    numParticlesButton.textContent = 'Apply Number of Particles';
+    numParticlesButton.addEventListener('click', () => {
+        numParticles = parseInt(numParticlesInput.value);
+        particles.forEach(particle => {
+            scene.remove(particle);
+        });
+        particles.length = 0;
+        for (let i = 0; i < numParticles; i++) {
+            const particle = new THREE.Mesh(particleGeometry, particleMaterial);
+            particle.position.set(Math.random() * 5 - 2.5, 0.1, Math.random() * 5 - 2.5);
+            particles.push(particle);
+            scene.add(particle);
+        }
+    });
+    document.body.appendChild(numParticlesButton);
+
+</script>
+</body>
+</html>
