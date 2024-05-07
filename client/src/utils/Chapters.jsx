@@ -7,7 +7,7 @@ import Searchlight from "../assets/Searchlight.png";
 import Swap from "../assets/Swap.png";
 import Transistor from "../assets/Transistor.png";
 import SemiconductorData from "./Semiconductor/data.jsx";
-import NuclieData from "./Nuclie/data.jsx"
+import NuclieData from "./Nuclie/data.jsx";
 
 const chaptersData = [
   {
@@ -21,6 +21,66 @@ const chaptersData = [
         id: 1,
         name: "Introduction",
         slug: "introduction",
+        subtopic: [
+          {
+            id: 0,
+            title: "",
+            text: (
+              <>
+                When we talk about light, we often imagine it as a beam moving
+                in a straight line. This simplified way of understanding light's
+                behavior is what we call ray optics. <br />
+                <br /> In ray optics, we study how light travels through
+                different materials and interacts with various objects. Imagine
+                you're standing in a room with sunlight streaming through a
+                window. Have you ever noticed how the sunlight seems to travel
+                in straight lines until it hits something, like a wall or a
+                mirror? That's exactly what we explore in ray optics. We want to
+                understand why light behaves this way and how we can predict its
+                path.
+                <br />
+                <br /> Ray optics is like drawing a map for light. By studying
+                how light rays move and interact, we can explain many phenomena,
+                from how a magnifying glass focuses light to how rainbows form.
+                It's an essential part of understanding the world around us and
+                how we see things.
+                <h2>Particle Model of Light</h2>
+                <br />
+                Sir Isaac Newton, known for his groundbreaking work in
+                mathematics and physics, also made significant contributions to
+                the study of light. He built upon the ideas of French
+                philosopher René Descartes, who proposed that light is made up
+                of tiny particles called corpuscles. Newton expanded on this
+                corpuscular model, suggesting that these particles have no mass
+                and behave like tiny elastic balls. <br />
+                Newton used his
+                understanding of mechanics to explain how light behaves when it
+                hits surfaces. He likened the reflection of light from a smooth
+                surface, like a mirror, to the way a ball bounces off a flat
+                surface. Just as a bouncing ball retains its velocity after
+                hitting the ground, Newton proposed that light particles reflect
+                off smooth surfaces with the same speed and direction, except
+                for the component perpendicular to the surface.<br />
+                 To explain
+                refraction, the bending of light when it passes from one medium
+                to another, Newton suggested that light particles move faster in
+                materials like water or glass compared to air. However, later
+                experiments showed that the speed of light is actually slower in
+                these materials.<br />
+                 While Newton's particle model explained some
+                phenomena well, it struggled to account for others. For example,
+                the colors seen in thin films of oil on water or the partial
+                reflection of light in ponds presented challenges. Newton
+                proposed that some light particles are reflected while others
+                are transmitted, but he struggled to explain why some are
+                reflected and others are not. This unpredictability in behavior
+                posed a dilemma for the particle model of light, unlike the more
+                consistent explanations provided by the wave theory of light.
+              </>
+            ),
+            image: [],
+          },
+        ],
       },
       {
         id: 2,
@@ -344,8 +404,7 @@ const chaptersData = [
                 electrostatic force of repulsion between the alpha-particle and
                 the positively charged nucleus. The magnitude of this force is{" "}
                 <div
-                  style={{ display: "flex", justifyContent: "space-evenly" }}
-                >
+                  style={{ display: "flex", justifyContent: "space-evenly" }}>
                   <BlockMath math="F = \frac{1}{4\pi\epsilon_0} \cdot \frac{2e \cdot Ze}{r^2}" />{" "}
                   <span style={{ margin: "1.5rem 0" }}>(12.1)</span>
                 </div>
@@ -415,24 +474,21 @@ const chaptersData = [
                 Thus, for a dynamically stable orbit in a hydrogen atom{" "}
                 <InlineMath math="F_e" /> = <InlineMath math="F_c" />{" "}
                 <div
-                  style={{ display: "flex", justifyContent: "space-evenly" }}
-                >
+                  style={{ display: "flex", justifyContent: "space-evenly" }}>
                   <BlockMath math="\frac{1}{4\pi\epsilon_0} \frac{e^2}{r^2} = \frac{mv^2}{r^2}" />{" "}
                   <span style={{ margin: "1.5rem 0" }}>(12.2)</span>
                 </div>
                 Thus the relation between the orbit radius and the electron
                 velocity is{" "}
                 <div
-                  style={{ display: "flex", justifyContent: "space-evenly" }}
-                >
+                  style={{ display: "flex", justifyContent: "space-evenly" }}>
                   <BlockMath math="r = \frac{e^2}{4\pi\epsilon_0mv^2}" />{" "}
                   <span style={{ margin: "1.5rem 0" }}>(12.3)</span>
                 </div>
                 The kinetic energy (K ) and electrostatic potential energy (U)
                 of the electron in hydrogen atom are
                 <div
-                  style={{ display: "flex", justifyContent: "space-evenly" }}
-                >
+                  style={{ display: "flex", justifyContent: "space-evenly" }}>
                   <BlockMath math="K = \frac{1}{2}{mv^2} = \frac{e^2}{8\pi\epsilon_0r}" />
                   <span style={{ margin: "1.5rem 0" }}>and </span>
                   <BlockMath math="U = -\frac{e^2}{4\pi\epsilon_0r}" />
@@ -442,8 +498,7 @@ const chaptersData = [
                 in a hydrogen atom is
                 <BlockMath math="E = K + U = \frac{e^2}{8\pi\epsilon_0r} - \frac{e^2}{4\pi\epsilon_0r}" />
                 <div
-                  style={{ display: "flex", justifyContent: "space-evenly" }}
-                >
+                  style={{ display: "flex", justifyContent: "space-evenly" }}>
                   <BlockMath math="= -\frac{e^2}{8\pi\epsilon_0r}" />{" "}
                   <span style={{ margin: "1.5rem 0" }}>(12.4)</span>
                 </div>
@@ -564,8 +619,7 @@ const chaptersData = [
                 <InlineMath math="6.6 \times 10^{-34}" /> J s). Thus the angular
                 momentum (L) of the orbiting electron is quantised. That is
                 <div
-                  style={{ display: "flex", justifyContent: "space-evenly" }}
-                >
+                  style={{ display: "flex", justifyContent: "space-evenly" }}>
                   <BlockMath math="L = \frac{nh}{2\pi}" />
                   <span style={{ margin: "1.5rem 0" }}>(12.5)</span>
                 </div>
@@ -582,8 +636,7 @@ const chaptersData = [
                   of the emitted photon is then given by
                 </i>{" "}
                 <div
-                  style={{ display: "flex", justifyContent: "space-evenly" }}
-                >
+                  style={{ display: "flex", justifyContent: "space-evenly" }}>
                   <BlockMath math="h\nu = E_i - E_f" />
                   <span style={{ margin: "1.5rem 0" }}>(12.6)</span>
                 </div>
@@ -597,8 +650,7 @@ const chaptersData = [
                 condition – is used. The radius of nth possible orbit thus found
                 is
                 <div
-                  style={{ display: "flex", justifyContent: "space-evenly" }}
-                >
+                  style={{ display: "flex", justifyContent: "space-evenly" }}>
                   <BlockMath math="r_n = \frac{n^2}{m} \frac{h^2}{2\pi} \frac{4\pi\epsilon_0}{e^2}" />
                   <span style={{ margin: "1.5rem 0" }}>(12.7)</span>
                 </div>
@@ -606,21 +658,18 @@ const chaptersData = [
                 hydrogen atom can be obtained by substituting the value of
                 orbital radius in Eq. (12.4) as
                 <div
-                  style={{ display: "flex", justifyContent: "space-evenly" }}
-                >
+                  style={{ display: "flex", justifyContent: "space-evenly" }}>
                   <BlockMath math="E_n = -\frac{e^2}{8\pi\epsilon_0} \frac{m}{n^2} \frac{2\pi^2}{h} \frac{e^2}{4\pi\epsilon_0}" />
                 </div>
                 <div
-                  style={{ display: "flex", justifyContent: "space-evenly" }}
-                >
+                  style={{ display: "flex", justifyContent: "space-evenly" }}>
                   <span style={{ margin: "1.5rem 0" }}>or</span>
                   <BlockMath math="E_n = -\frac{me^4}{8n^2\epsilon_0^2h^2}" />
                   <span style={{ margin: "1.5rem 0" }}>(12.8)</span>
                 </div>
                 Substituting values, Eq. (12.8) yields
                 <div
-                  style={{ display: "flex", justifyContent: "space-evenly" }}
-                >
+                  style={{ display: "flex", justifyContent: "space-evenly" }}>
                   <BlockMath math="E_n = -\frac{2.18 \times 10^{-18}}{n^2}J" />
                   <span style={{ margin: "1.5rem 0" }}>(12.9)</span>
                 </div>
@@ -629,8 +678,7 @@ const chaptersData = [
                 <InlineMath math="1.6 \times 10^{-19}" /> J, Eq. (12.9) can be
                 rewritten as
                 <div
-                  style={{ display: "flex", justifyContent: "space-evenly" }}
-                >
+                  style={{ display: "flex", justifyContent: "space-evenly" }}>
                   <BlockMath math="E_n = -\frac{13.6}{n^2}eV" />
                   <span style={{ margin: "1.5rem 0" }}>(12.10)</span>
                 </div>
@@ -714,8 +762,7 @@ const chaptersData = [
                 difference of energy is carried away by a photon of frequency{" "}
                 <InlineMath math="\nu_if" /> such that
                 <div
-                  style={{ display: "flex", justifyContent: "space-evenly" }}
-                >
+                  style={{ display: "flex", justifyContent: "space-evenly" }}>
                   <BlockMath math="h\nu_if = E_ni - E_nf" />
                   <span style={{ margin: "1.5rem 0" }}>(12.11)</span>
                 </div>
@@ -790,8 +837,7 @@ const chaptersData = [
                 total distance is the circumference of the orbit,{" "}
                 <InlineMath math="2\pi r_n" /> . Thus
                 <div
-                  style={{ display: "flex", justifyContent: "space-evenly" }}
-                >
+                  style={{ display: "flex", justifyContent: "space-evenly" }}>
                   <BlockMath math="2\pi r_n = n\lambda" />
                   <span style={{ margin: "1.5rem 0" }}>n = 1, 2, 3...</span>
                   <span style={{ margin: "1.5rem 0" }}>(12.12)</span>
@@ -808,8 +854,7 @@ const chaptersData = [
                 <InlineMath math="\lambda = h/mv_n" /> . From Eq. (12.12), we
                 have
                 <div
-                  style={{ display: "flex", justifyContent: "space-evenly" }}
-                >
+                  style={{ display: "flex", justifyContent: "space-evenly" }}>
                   <BlockMath math="2\pi r_n = \frac{nh}{mv_n}" />
                   <span style={{ margin: "1.5rem 0" }}>or</span>
                   <BlockMath math="mv_nr_n = \frac{nh}{2\pi}" />
@@ -869,7 +914,7 @@ const chaptersData = [
     src: ReactImage,
     slug: "nuclie",
     name: "Nuclie",
-    sections: NuclieData
+    sections: NuclieData,
   },
   {
     id: 14,
